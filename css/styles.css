@@ -118,10 +118,13 @@
   -wekbit-justify-content: center;
   -webkit-align-items: center;
 }
+#pricePanel {
+  margin : 0;
+}
 #priceRangeInput {
   display: block;
-  margin: 10px auto;
-  width: 80%;
+  margin: 10px 15px;
+  width: 100%;
 }
 #refineWineSelection ul.list {
   margin-bottom: 40px;

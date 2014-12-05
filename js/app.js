@@ -81,7 +81,7 @@ $(function () {
     var priceSelector = $('#priceSelector').html();
 
     // For Web and iPhone 5S and earlier:
-    var searchPanel = $('#searchPanel');
+    var searchPanel = $('#searchPanel').html();
 
     var searchResultsTmpl = $('#searchResultsTemplate').html();
     var parsedSearchResults = $.template(searchResultsTmpl, 'wine');

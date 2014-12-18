@@ -127,6 +127,7 @@ $(function () {
   $.getJSON('./data/bestWines.js', function(data) {
     var bestReds = data[0].data;
     var bestWhites = data[1].data;
+    console.log(data);
 
     // Publish the results to notify
     // any template subscribers that

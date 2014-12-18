@@ -17,7 +17,7 @@ Version: 3.8.0
   To create a custom theme, adjust the color for @primaryColor. If you want a secondary color, uncomment the line for @secondaryColor and set it's value to what you want.
 */
 .attentionGrapper {
-  color: #e65100 !important;
+  color: #007aff !important;
 }
 /* 
   Flex parameters:
@@ -327,15 +327,17 @@ button {
   -webkit-animation-timing-function: ease-out;
   animation-duration: 0.35s;
   animation-timing-function: ease-out;
+  background-color: #e8e8e8;
   background-image: -webkit-radial-gradient(rgba(0, 0, 0, 0.125) 50%, rgba(0, 0, 0, 0) 60%);
   background-size: 0 0;
   background-repeat: no-repeat;
   background-position: center center;
   -webkit-animation-fill-mode: forwards;
 }
-button:hover {
+button:hover, nav > button:hover {
   -webkit-animation-name: focused;
   animation-name: focused;
+  color: #fff !important;
 }
 button:focus {
   outline: none !important;
@@ -370,7 +372,7 @@ button.backTo {
   padding: 0 12px 0 12px !important;
   margin: 0 0 0 0;
   line-height: 28px;
-  color: #2a36b1;
+  color: #eaeaea;
   font-size: 0;
   border: none;
   background-color: transparent;
@@ -391,14 +393,14 @@ button.backTo::after {
   position: absolute;
   left: 0;
   top: 0;
-  background-image: url("data:image/svg+xml;utf8,%3Csvg%20width%3D%22120px%22%20height%3D%22120px%22%20viewBox%3D%220%200%20120%20120%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%3Cg%20id%3D%22Page-1%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20id%3D%22BackButton%22%20stroke-linecap%3D%22square%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%228%22%3E%3Cg%20id%3D%22Line-2-+-Line-+-Line%22%20transform%3D%22translate%2815.000000,%2022.000000%29%22%3E%3Cpath%20d%3D%22M0.62909796,38.5%20L37.1384668,76.3699524%22%20id%3D%22Line-2%22%3E%3C/path%3E%3Cpath%20d%3D%22M89.3478261,39%20L3.2313744,39%22%20id%3D%22Line%22%3E%3C/path%3E%3Cpath%20d%3D%22M0.62909796,38.5%20L37.1384668,0.63004759%22%20id%3D%22Line%22%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20width%3D%22120px%22%20height%3D%22120px%22%20viewBox%3D%220%200%20120%20120%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%3Cg%20id%3D%22Page-1%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20id%3D%22BackButton%22%20stroke-linecap%3D%22square%22%20stroke%3D%22%23000000%22%20stroke-width%3D%228%22%3E%3Cg%20id%3D%22Line-2-+-Line-+-Line%22%20transform%3D%22translate%2815.000000,%2022.000000%29%22%3E%3Cpath%20d%3D%22M0.62909796,38.5%20L37.1384668,76.3699524%22%20id%3D%22Line-2%22%3E%3C/path%3E%3Cpath%20d%3D%22M89.3478261,39%20L3.2313744,39%22%20id%3D%22Line%22%3E%3C/path%3E%3Cpath%20d%3D%22M0.62909796,38.5%20L37.1384668,0.63004759%22%20id%3D%22Line%22%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   background-position: 50% 50%;
   background-size: 90% 90%;
   background-repeat: no-repeat;
 }
 .isDesktop button.back:hover,
 .isDesktop button.backTo:hover {
-  background-color: rgba(255, 255, 255, 0.35) !important;
+  background-color: rgba(0, 0, 0, 0.35) !important;
   -webkit-animation: animate-icon 0.5s none;
 }
 .isDesktop button.back:hover::after,
@@ -446,7 +448,7 @@ html[dir=rtl] button.align-flush {
    Nav bars               
    =========================== */
 #global-nav {
-  background-color: #2a36b1;
+  background-color: #eaeaea;
   overflow: hidden;
   box-shadow: 0 1px 2px #666666;
   padding: 0 5px;
@@ -484,8 +486,6 @@ nav {
 }
 nav > button:first-child {
   margin-left: 0;
-  color: #000000;
-  color: #ffffff;
 }
 nav > h1 {
   text-align: left;
@@ -501,31 +501,28 @@ nav > h1 {
   white-space: nowrap;
   overflow: hidden;
   color: #000000;
-  color: #ffffff;
 }
 nav > h1 + button {
   margin: 5px 5px 0 0;
   position: absolute;
   top: 0;
   right: 10px;
-  color: #000000;
-  color: #ffffff;
 }
 nav > button,
 nav > div > button {
   position: relative;
-  color: #ffffff !important;
+  color: #000000;
 }
 nav > button:hover,
 nav > div > button:hover {
-  background-color: rgba(255, 255, 255, 0.25) !important;
-  color: #ffffff !important;
+  background-color: rgba(0, 0, 0, 0.25) !important;
+  color: #fff !important;
 }
 .isDesktop nav .back:hover,
 .isDesktop nav .backTo:hover {
-  background-color: #ffffff !important;
+  background-color: #ccc !important;
   -webkit-animation: animate-icon 0.5s none;
-  color: #ffffff;
+  color: #000000;
 }
 html[dir=rtl] nav > h1 {
   text-align: right;
@@ -587,8 +584,8 @@ html[dir=rtl] body.isNativeAndroidBrowser nav > h1 + button {
   width: 22px;
   height: 20px;
   border-radius: 20px;
-  border: solid 1px #e65100;
-  color: #e65100;
+  border: solid 1px #007aff;
+  color: #007aff;
   font: bold 14px/0 Roboto, SegoeWP, HelveticaNeue, Sans-serif;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -622,7 +619,7 @@ p {
 li[data-show-article].touched,
 .isDesktop .list.select > li:hover {
   cursor: pointer;
-  background-color: #2a36b1;
+  background-color: #007aff;
 }
 .isDesktop .list > li[data-goto]:hover h3,
 .list > li[data-goto].touched h3,
@@ -892,8 +889,8 @@ li.comp > aside > .show-detail::after {
   width: 22px;
   height: 20px;
   border-radius: 20px;
-  border: solid 1px #e65100;
-  color: #e65100;
+  border: solid 1px #007aff;
+  color: #007aff;
   font: bold 14px/0 Roboto, Times, serif;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1174,7 +1171,7 @@ html[dir=rtl] .grid {
 }
 .isDesktop .segmented:not(.paging) > button:hover,
 .segmented:not(.paging) > button.selected {
-  background-color: #2a36b1;
+  background-color: #007aff;
   opacity: 1 !important;
   box-shadow: none;
   color: #ffffff;
@@ -1231,8 +1228,8 @@ html[dir=rtl] .segmented.paging.horizontal > button:last-of-type::before {
   display: block;
   width: 16px;
   height: 16px;
-  border-left: solid 3px #ffffff;
-  border-top: solid 3px #ffffff;
+  border-left: solid 3px #000000;
+  border-top: solid 3px #000000;
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   transform: rotate(-45deg);
@@ -1247,8 +1244,8 @@ html[dir=rtl] .segmented.paging.horizontal > button:first-of-type::before {
   width: 16px;
   height: 16px;
   margin: 0 !important;
-  border-right: solid 3px #ffffff;
-  border-bottom: solid 3px #ffffff;
+  border-right: solid 3px #000000;
+  border-bottom: solid 3px #000000;
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   transform: rotate(-45deg);
@@ -1281,8 +1278,8 @@ html[dir=rtl] .segmented.paging.horizontal > button:first-of-type::before {
   display: block;
   width: 16px;
   height: 16px;
-  border-right: solid 3px #ffffff;
-  border-bottom: solid 3px #ffffff;
+  border-right: solid 3px #000000;
+  border-bottom: solid 3px #000000;
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   transform: rotate(45deg);
@@ -1295,8 +1292,8 @@ html[dir=rtl] .segmented.paging.horizontal > button:first-of-type::before {
   display: block;
   width: 16px;
   height: 16px;
-  border-right: solid 3px #ffffff;
-  border-top: solid 3px #ffffff;
+  border-right: solid 3px #000000;
+  border-top: solid 3px #000000;
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   transform: rotate(-45deg);
@@ -1427,12 +1424,12 @@ html[dir=rtl] .isNativeAndroidBrowser .segmented.paging.horizontal > button:firs
   transform: translate3d(0, 0, 0);
   padding: 0 16px;
   vertical-align: middle;
-  background-color: #2a36b1;
+  background-color: #eaeaea;
   overflow: hidden;
   border-top: solid 1px #666666;
 }
 .toolbar > button {
-  color: #ffffff !important;
+  color: #000000 !important;
 }
 .toolbar > button:hover {
   background-color: rgba(255, 255, 255, 0.25);
@@ -1513,7 +1510,7 @@ body.splitlayout {
   align-items: stretch;
 }
 .splitlayout > nav {
-  background-color: #2a36b1;
+  background-color: #eaeaea;
   border-bottom: solid 1px #a7a7aa;
 }
 .splitlayout > nav:first-of-type {
@@ -1698,7 +1695,7 @@ html[dir=rtl] .busy.align-flush {
 }
 .isDesktop .popover .list > li:hover,
 .isDesktop .popover .list > li.selected {
-  background-color: #2a36b1 !important;
+  background-color: #007aff !important;
   color: #ffffff !important;
 }
 .isDesktop .popover .list > li:hover h3,
@@ -1720,7 +1717,7 @@ button.show-popover.align-flush {
   position: absolute;
 }
 button.show-popover.selected {
-  background-color: #2a36b1;
+  background-color: #007aff;
 }
 .segmented > button.show-popover:first-of-type {
   border-left: none !important;
@@ -1733,14 +1730,14 @@ button.show-popover::after {
   bottom: 2px;
   width: 0px;
   height: 0px;
-  border-right: solid 6px #ffffff;
-  border-bottom: solid 6px #ffffff;
+  border-right: solid 6px #000000;
+  border-bottom: solid 6px #000000;
   border-top: solid 6px transparent;
   border-left: solid 6px transparent;
 }
 nav > button.show-popover::after {
-  border-right: solid 6px #ffffff;
-  border-bottom: solid 6px #ffffff;
+  border-right: solid 6px #000000;
+  border-bottom: solid 6px #000000;
 }
 nav > h1 + button.show-popover.align-flush {
   margin: 8px 0 0 0 !important;
@@ -1752,8 +1749,8 @@ html[dir=rtl] button.show-popover::after {
   left: 2px;
   right: auto;
   border: none;
-  border-left: solid 6px #ffffff;
-  border-bottom: solid 6px #ffffff;
+  border-left: solid 6px #000000;
+  border-bottom: solid 6px #000000;
   border-top: solid 6px transparent;
   border-right: solid 6px transparent;
 }
@@ -1762,8 +1759,8 @@ html[dir=rtl] button.show-popover + button {
   -webkit-order: 1;
 }
 html[dir=rtl] .isDesktop .button.show-popover:hover::after {
-  border-left: solid 6px #ffffff !important;
-  border-bottom: solid 6px #ffffff;
+  border-left: solid 6px #000000 !important;
+  border-bottom: solid 6px #000000;
   border-top: solid 6px transparent;
   border-right: solid 6px transparent;
 }
@@ -1870,7 +1867,7 @@ html[dir=rtl] .isDesktop .button.show-popover:hover::after {
 }
 .isDesktop .popup > footer > button:hover {
   box-shadow: none;
-  background-color: #3542cf;
+  background-color: #298fff;
   color: #ffffff;
 }
 .popup > p {
@@ -1923,7 +1920,7 @@ html[dir=rtl] .popup > footer button:first-child + button {
   width: 21px;
   height: 21px;
   position: absolute;
-  background-image: url("data:image/svg+xml;utf8,%3Csvg%20width%3D%22367px%22%20height%3D%22367px%22%20viewBox%3D%220%200%20367%20367%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%3Cg%20id%3D%22Page-1%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20id%3D%22Sortable%22%20transform%3D%22translate%2813.000000,%2013.000000%29%22%20stroke%3D%22%232a36b1%22%20stroke-width%3D%2225%22%3E%3Ccircle%20id%3D%22Oval-1%22%20cx%3D%22170.5%22%20cy%3D%22170.5%22%20r%3D%22170.5%22%3E%3C/circle%3E%3Cpath%20d%3D%22M55.3736267,209.778395%20L172.745285,100.706186%20L286.306656,209.611568%22%20id%3D%22Path-2%22%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20width%3D%22367px%22%20height%3D%22367px%22%20viewBox%3D%220%200%20367%20367%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%3Cg%20id%3D%22Page-1%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20id%3D%22Sortable%22%20transform%3D%22translate%2813.000000,%2013.000000%29%22%20stroke%3D%22%23007aff%22%20stroke-width%3D%2225%22%3E%3Ccircle%20id%3D%22Oval-1%22%20cx%3D%22170.5%22%20cy%3D%22170.5%22%20r%3D%22170.5%22%3E%3C/circle%3E%3Cpath%20d%3D%22M55.3736267,209.778395%20L172.745285,100.706186%20L286.306656,209.611568%22%20id%3D%22Path-2%22%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 100% 100%;
@@ -1948,7 +1945,7 @@ html[dir=rtl] .popup > footer button:first-child + button {
   padding: 2px 5px 13px 1px;
   width: 24px;
   height: 24px;
-  border: solid 2px #2a36b1;
+  border: solid 2px #007aff;
   position: absolute;
   top: 14px;
   left: -32px;
@@ -1959,10 +1956,10 @@ html[dir=rtl] .popup > footer button:first-child + button {
 }
 .isDesktop .deletion-indicator:hover,
 li.selected > .deletion-indicator {
-  color: #161d5f !important;
-  background-color: #2a36b1;
-  box-shadow: 0 0 3px 1px rgba(42, 54, 177, 0.5);
-  border-color: #2a36b1;
+  color: #004999 !important;
+  background-color: #007aff;
+  box-shadow: 0 0 3px 1px rgba(0, 122, 255, 0.5);
+  border-color: #007aff;
 }
 li.selected > .deletion-indicator::before {
   content: '';
@@ -2174,8 +2171,8 @@ input:focus,
 textarea:focus {
   outline: none !important;
   /* Create the bracket around inputs: */
-  background-image: -webkit-linear-gradient(left, #2a36b1, #2a36b1);
-  background-image: linear-gradient(left, #2a36b1, #2a36b1);
+  background-image: -webkit-linear-gradient(left, #007aff, #007aff);
+  background-image: linear-gradient(left, #007aff, #007aff);
   background-size: 100% 2px;
 }
 .isAndroid:not(.isDesktop) .select-box > select {
@@ -2269,10 +2266,11 @@ input[type="search"]:focus {
 .icon {
   width: 40px;
   height: 40px;
+  box-sizing: border-box;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: auto 70%;
-  border-radius: 50%;
+  border-radius: 200px 200px;
 }
 li > aside > span.icon {
   margin-left: 0;
@@ -2290,7 +2288,7 @@ input[type="range"] {
   height: 2px;
   border-radius: 2px;
   background-color: #aaaaaa;
-  background-image: -webkit-linear-gradient(top, #e65100, #e65100);
+  background-image: -webkit-linear-gradient(top, #007aff, #007aff);
   background-size: 0px 2px;
   background-position: left center;
   background-repeat: no-repeat;
@@ -2303,7 +2301,7 @@ input[type="range"]::-webkit-slider-thumb {
   height: 18px;
   border-radius: 20px;
   margin: 0;
-  background-color: #e65100;
+  background-color: #007aff;
   border: solid 1px transparent;
 }
 input[type="range"]:focus::-webkit-slider-thumb,
@@ -2311,7 +2309,7 @@ input[type="range"]:focus::-webkit-slider-thumb,
   width: 40px;
   height: 40px;
   background-color: transparent;
-  background-image: url("data:image/svg+xml;utf8,%3Csvg%20width%3D%22102px%22%20height%3D%22102px%22%20viewBox%3D%220%200%20102%20102%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%3Cg%20id%3D%22Page-1%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20id%3D%22range-thumb%22%20transform%3D%22translate%281.000000,%201.000000%29%22%3E%3Ccircle%20id%3D%22Oval-1%22%20stroke%3D%22%23e65100%22%20stroke-width%3D%222%22%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%3E%3C/circle%3E%3Ccircle%20id%3D%22Oval-2%22%20fill-opacity%3D%220.598698103%22%20fill%3D%22%23e65100%22%20cx%3D%2249.5%22%20cy%3D%2249.5%22%20r%3D%2232.5%22%3E%3C/circle%3E%3Ccircle%20id%3D%22Oval-3%22%20fill%3D%22%23e65100%22%20cx%3D%2249.5%22%20cy%3D%2249.5%22%20r%3D%2213.5%22%3E%3C/circle%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20width%3D%22102px%22%20height%3D%22102px%22%20viewBox%3D%220%200%20102%20102%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%3Cg%20id%3D%22Page-1%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20id%3D%22range-thumb%22%20transform%3D%22translate%281.000000,%201.000000%29%22%3E%3Ccircle%20id%3D%22Oval-1%22%20stroke%3D%22%23007aff%22%20stroke-width%3D%222%22%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%3E%3C/circle%3E%3Ccircle%20id%3D%22Oval-2%22%20fill-opacity%3D%220.598698103%22%20fill%3D%22%23007aff%22%20cx%3D%2249.5%22%20cy%3D%2249.5%22%20r%3D%2232.5%22%3E%3C/circle%3E%3Ccircle%20id%3D%22Oval-3%22%20fill%3D%22%23007aff%22%20cx%3D%2249.5%22%20cy%3D%2249.5%22%20r%3D%2213.5%22%3E%3C/circle%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 100% 100%;
@@ -2321,7 +2319,7 @@ input[type="range"]:focus::-webkit-slider-thumb,
   display: block;
   width: 40px;
   height: 40px;
-  background-color: #e65100;
+  background-color: #007aff;
   border-radius: 50%;
   position: absolute;
   top: 0;
@@ -2337,7 +2335,7 @@ input[type="range"]:focus::-webkit-slider-thumb,
   height: 2px;
   border-radius: 2px;
   background-color: #aaaaaa;
-  background-image: -webkit-linear-gradient(top, #182390, #182390);
+  background-image: -webkit-linear-gradient(top, #0062cc, #0062cc);
   background-size: 0px 2px;
   background-position: left center;
   background-repeat: no-repeat;
@@ -2351,12 +2349,12 @@ input[type="range"]:focus::-webkit-slider-thumb,
   border-radius: 20px;
   margin: 0;
   background-color: transparent;
-  background-image: -webkit-radial-gradient(#1a226f 4px, rgba(34, 44, 144, 0.8) 4px);
-  border: solid 1px #1a226f;
+  background-image: -webkit-radial-gradient(#0053ad 4px, rgba(0, 102, 214, 0.8) 4px);
+  border: solid 1px #0053ad;
 }
 .isNativeAndroidBrowser input[type="range"]:focus::-webkit-slider-thumb,
 .isNativeAndroidBrowser .isDesktop input[type="range"]::-webkit-slider-thumb:hover {
-  background-image: -webkit-radial-gradient(#1a226f 4px, rgba(42, 54, 177, 0.5) 4px);
+  background-image: -webkit-radial-gradient(#0053ad 4px, rgba(0, 122, 255, 0.5) 4px);
 }
 html[dir=rtl] input[type="range"] {
   background-position: right center;
@@ -2368,26 +2366,26 @@ html[dir=rtl] body.isNativeAndroidBrowser input[type="range"] {
    Select List
    =========================== */
 .isDesktop .list.select li:hover {
-  background-color: #2a36b1;
+  background-color: #007aff;
 }
 .isDesktop .list.select li:hover::after {
-  background-color: #2a36b1;
+  background-color: #007aff;
   -webkit-transition: all 0.125s ease-in-out;
   -moz-transition: all 0.125s ease-in-out;
   transition: all 0.125s ease-in-out;
   opacity: 1;
-  box-shadow: 0 0 0 3px #2a36b1, inset 0 0px 0px 3px #ffffff;
+  box-shadow: 0 0 0 3px #007aff, inset 0 0px 0px 3px #ffffff;
 }
 .list.select li.selected {
   color: #000000;
 }
 .list.select li.selected::after {
-  background-color: #2a36b1;
+  background-color: #007aff;
   -webkit-transition: all 0.125s ease-in-out;
   -moz-transition: all 0.125s ease-in-out;
   transition: all 0.125s ease-in-out;
   opacity: 1;
-  box-shadow: 0 0 0 3px #2a36b1, inset 0 0px 0px 3px #ffffff;
+  box-shadow: 0 0 0 3px #007aff, inset 0 0px 0px 3px #ffffff;
 }
 .list.select li.selected *,
 .isDesktop .list.select li:hover * {
@@ -2483,8 +2481,8 @@ html[dir=rtl] .list.select li::after {
   margin: 10px auto 0;
 }
 .isDesktop .sheet div.handle:hover {
-  background-color: #2a36b1;
-  background-image: url("data:image/svg+xml;utf8,%3Csvg%20width%3D%2294px%22%20height%3D%2237px%22%20viewBox%3D%220%200%2094%2037%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%3Cg%20id%3D%22Page-1%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20transform%3D%22translate%281.000000,%201.000000%29%22%20id%3D%22Artboard-1%22%20fill%3D%22%23ffffff%22%3E%3Cpath%20d%3D%22M46,10.1317773%20L4.17415422,35.2632809%20L-0.46118846,27.5487752%20L45.8258458,-0.2632809%20L46,0.0265604%20L46.1741542,-0.2632809%20L92.4611885,27.5487752%20L87.8258458,35.2632809%20L46,10.1317773%20L46,10.1317773%20Z%22%20id%3D%22Rectangle-2%22%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-color: #007aff;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20width%3D%2294px%22%20height%3D%2237px%22%20viewBox%3D%220%200%2094%2037%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%3Cg%20id%3D%22Page-1%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20transform%3D%22translate%281.000000,%201.000000%29%22%20id%3D%22Artboard-1%22%20fill%3D%22%23000000%22%3E%3Cpath%20d%3D%22M46,10.1317773%20L4.17415422,35.2632809%20L-0.46118846,27.5487752%20L45.8258458,-0.2632809%20L46,0.0265604%20L46.1741542,-0.2632809%20L92.4611885,27.5487752%20L87.8258458,35.2632809%20L46,10.1317773%20L46,10.1317773%20Z%22%20id%3D%22Rectangle-2%22%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 .isNativeAndroidBrowser .sheet div.handle {
   background-size: 20% auto;
@@ -2566,7 +2564,7 @@ button.slide-out-button::before {
   display: block;
   width: 35px;
   height: 35px;
-  background-image: url("data:image/svg+xml;utf8,%3Csvg%20width%3D%2281px%22%20height%3D%2260px%22%20viewBox%3D%220%200%2081%2060%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%3Cg%20id%3D%22Page-1%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20id%3D%22slideout%22%20fill%3D%22%23ffffff%22%3E%3Crect%20id%3D%22Rectangle%22%20x%3D%228%22%20y%3D%220%22%20width%3D%2264.167%22%20height%3D%227.666%22%3E%3C/rect%3E%3Crect%20id%3D%22Rectangle%22%20x%3D%228%22%20y%3D%2226%22%20width%3D%2264.167%22%20height%3D%227.667%22%3E%3C/rect%3E%3Crect%20id%3D%22Rectangle%22%20x%3D%228%22%20y%3D%2252%22%20width%3D%2264.167%22%20height%3D%227.666%22%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20width%3D%2281px%22%20height%3D%2260px%22%20viewBox%3D%220%200%2081%2060%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%3Cg%20id%3D%22Page-1%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20id%3D%22slideout%22%20fill%3D%22%23000000%22%3E%3Crect%20id%3D%22Rectangle%22%20x%3D%228%22%20y%3D%220%22%20width%3D%2264.167%22%20height%3D%227.666%22%3E%3C/rect%3E%3Crect%20id%3D%22Rectangle%22%20x%3D%228%22%20y%3D%2226%22%20width%3D%2264.167%22%20height%3D%227.667%22%3E%3C/rect%3E%3Crect%20id%3D%22Rectangle%22%20x%3D%228%22%20y%3D%2252%22%20width%3D%2264.167%22%20height%3D%227.666%22%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   background-position: 50% 50%;
   background-size: 70% 70%;
   background-repeat: no-repeat;
@@ -2709,7 +2707,7 @@ li.switched h3 {
   width: auto;
   font-size: 13pt;
   line-height: 24pt;
-  color: #2a36b1;
+  color: #007aff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2754,8 +2752,8 @@ html[dir=rtl] li.switched h4 {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  background-image: -webkit-linear-gradient(left, #e65100, #e65100), -webkit-linear-gradient(left, #888888, #888888);
-  background-image: linear-gradient(to left, #e65100, #e65100), linear-gradient(to left, #888888, #888888);
+  background-image: -webkit-linear-gradient(left, #007aff, #007aff), -webkit-linear-gradient(left, #888888, #888888);
+  background-image: linear-gradient(to left, #007aff, #007aff), linear-gradient(to left, #888888, #888888);
   background-position: left 10px, left 10px;
   background-size: 0% 2px, 100% 2px;
   background-repeat: no-repeat, no-repeat;
@@ -2798,7 +2796,7 @@ html[dir=rtl] li.switched h4 {
   background-color: #cecece;
 }
 .isDesktop .switch.traditional:hover {
-  box-shadow: 0 0 2px 2px #2a36b1;
+  box-shadow: 0 0 2px 2px #007aff;
 }
 .switch > em {
   display: block;
@@ -2825,21 +2823,21 @@ html[dir=rtl] li.switched h4 {
   -webkit-transform: translate3d(20px, 0, 0);
   -moz-transform: translate3d(20px, 0, 0);
   transform: translate3d(20px, 0, 0);
-  background-color: #e65100;
-  border: solid 2px #e65100;
+  background-color: #007aff;
+  border: solid 2px #007aff;
 }
 .switch.traditional.on {
-  border-color: #0d1035;
+  border-color: #003166;
   background-size: 100% 100%;
 }
 .switch.traditional.on > em {
   -webkit-transform: translate3d(36px, 0, 0);
   -moz-transform: translate3d(36px, 0, 0);
   transform: translate3d(36px, 0, 0);
-  background-color: #2a36b1;
-  border: solid 1px #2a36b1;
-  border-top: solid 1px #4552d3;
-  border-left-color: #0d1035;
+  background-color: #007aff;
+  border: solid 1px #007aff;
+  border-top: solid 1px #3d9aff;
+  border-left-color: #003166;
 }
 .switch > input {
   display: none;
@@ -2853,8 +2851,8 @@ html[dir=rtl] .switch.on > em {
   transform: translate3d(-20px, 0, 0);
 }
 html[dir=rtl] .switch.on > em.traditional {
-  border-left-color: #2a36b1;
-  border-right-color: #0d1035;
+  border-left-color: #007aff;
+  border-right-color: #003166;
 }
 html[dir=rtl] .switch > em {
   -webkit-transform: translate3d(2px, 0, 0);
@@ -2914,15 +2912,15 @@ body.hasTabBar article .next:not(.navigable) {
 .isDesktop .tabbar > button:hover {
   opacity: 1 !important;
   box-shadow: none !important;
-  border-bottom: solid 3px #2a36b1;
-  background-color: #2a36b1 !important;
+  border-bottom: solid 3px #007aff;
+  background-color: #007aff !important;
   color: #ffffff !important;
 }
 .tabbar > button.selected {
   color: #666666 !important;
   opacity: 1 !important;
   box-shadow: none !important;
-  border-bottom: solid 3px #2a36b1;
+  border-bottom: solid 3px #007aff;
 }
 .tabbar > button.more {
   font-size: 0;
@@ -3054,14 +3052,14 @@ html[dir=rtl] .tabbar > button:last-child {
   border-radius: 50%;
 }
 .pagination > li.selected {
-  background-color: #2a36b1;
+  background-color: #007aff;
   cursor: pointer;
 }
 .pagination > li:last-of-type {
   margin-right: 0;
 }
 .isDesktop .pagination > li:hover {
-  background-color: #2a36b1;
+  background-color: #007aff;
   cursor: pointer;
 }
 html[dir=rtl] .pagination > li {

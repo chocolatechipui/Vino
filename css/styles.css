@@ -263,7 +263,7 @@ background-color: red;
  order: -1;
 }
 #searchNav {
-  background-color: #007aff;
+  background-color: #fff;
   border-bottom: solid 1px #a7a7aa;
   overflow: hidden;
   padding: 0 10px;
@@ -283,7 +283,7 @@ background-color: red;
   background-size: 300% 200%, auto 100%;;
 }
 #global-nav {
-  background-color: #007aff;
+  background-color: #fff;
 }
 #searchSheet h2 {
   text-align: left !important;

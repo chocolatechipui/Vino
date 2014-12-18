@@ -1789,6 +1789,7 @@ if(window.jQuery) {
     },
     UIHideSheet : function ( ) {
       $('.sheet').removeClass('opened');
+      $('.sheet').removeAttr('style');
       $('article.current').addClass('removeBlurSlow');
       setTimeout(function() {
         $('article').removeClass('blurred');

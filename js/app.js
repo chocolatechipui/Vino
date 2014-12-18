@@ -11,6 +11,7 @@ $(function () {
   if (!$.isStandalone) $('body').addClass('inBrowserMode');
   if (!$.isiOS && window.innerWidth >= 414) isiPhone6Plus = true;
   if (!$.isiOS && window.innerWidth >= 320 && window.innerWidth < 414) isiPhone6 = true;
+  if (($.isAndroid || $.isChrome) && window.innerWidth <= 360) isiPhone6 = true;
 
 
 
@@ -245,6 +246,7 @@ $(function () {
   // Define handler to close about sheet:
   //=====================================
   $('#aboutSheet button').on('singletap', function() {
+    $('.sheet').removeAttr('style'); 
     $.UIHideSheet();
   });
 
@@ -491,7 +493,14 @@ $(function () {
   // Define method to show winery in Apple Maps:
   //============================================
   var renderWineryMap = function(location) {
-    window.location.href= 'http://maps.apple.com/?q=' + location;
+    // Open Apple Maps on Mac & iOS:
+    if ($.isiOS) {
+      window.location.href= 'http://maps.apple.com/?q=' + location;
+
+    // Otherwise open with Google Maps:
+    } else {
+      window.location.href= 'http://maps.google.com/?q=' + location;
+    }
   };
 
   // Define event handler to show 
@@ -549,11 +558,11 @@ $(function () {
   //==========================================
   $('#confirmationPanel button').on('singletap', function() {
     $.UIHideSheet();
-
+    $('.sheet').removeAttr('style'); 
 
     $('#confirmationPanel').hide();
 
-    $('#purchaseSheet').css('height', 80);
+    $('#purchaseSheet').css('height', 100);
 
     // Delay showing the progress bar so
     // it doesn't show while hiding the sheet:
@@ -583,6 +592,9 @@ $(function () {
       continueButton: 'Purchase',
       callback: function() {
         setTimeout(function() {
+          if ($.isAndroid || $.isDesktopChrome) {
+            $('#purchaseSheet').css(top, 0)
+          }
           $.UIShowSheet('#purchaseSheet');
           progressInterval = setInterval(processProgress, pval);
         });

@@ -153,13 +153,8 @@ progress {
   padding: 0;
 }
 .sheet > section {
-  top: 70px;
+  top: 0;
   padding: 0 !important;
-}
-.sheet.opened div.handle, .sheet div.handle {
-  display: block;
-  background: none !important;
-  -webkit-mask-image: none;
 }
 .sheet > section > #progressPanel > h2 {
   text-align: center;
@@ -294,7 +289,7 @@ progress {
   height: 100% !important;
 }
 #aboutSheet section {
-  padding: 20px 40px !important;
+  padding: 10px 40px  20px !important;
 }
 #aboutSheet .handle {
   display: block;

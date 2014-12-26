@@ -227,14 +227,14 @@ $(function () {
   //========================================
 
   // Initialize about sheet:
-  $.UISheet({id:'aboutSheet'});
-
-  // Populate about sheet with content:
-  $('#aboutSheet').find('section').html(aboutContent);
+  $.UISheet({id:'aboutSheet', handle: false});
 
   // Add button to close about sheet:
-  $('#aboutSheet').find('.handle').html(aboutSheetHandleTemplate);
-  
+  $('#aboutSheet').find('section').html(aboutSheetHandleTemplate);
+
+  // Populate about sheet with content:
+  $('#aboutSheet').find('section').append(aboutContent);
+
   // Define handler to show about sheet
   // when use taps the info icon button:
   //====================================
@@ -323,7 +323,7 @@ $(function () {
 
   // Create the search sheet:
   //=========================
-  $.UISheet({id:'searchSheet'});
+  $.UISheet({id:'searchSheet', handle: false});
 
   // Populate search sheet:
   //=======================
@@ -508,7 +508,7 @@ $(function () {
 
   // Initialize purchase sheet:
   //===========================
-  $.UISheet({id:'purchaseSheet'});
+  $.UISheet({id:'purchaseSheet', handle: false});
   
   // Populate purchase sheet
   $('#purchaseSheet').find('section').html(purchaseSheetTemplate);

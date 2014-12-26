@@ -11,7 +11,7 @@ ChocolateChip-UI
 ChUI.js
 Copyright 2014 Sourcebits www.sourcebits.com
 License: MIT
-Version: 3.8.0
+Version: 3.8.1
 */
 window.CHUIJSLIB;
 if(window.jQuery) {
@@ -362,6 +362,7 @@ if(window.jQuery) {
   var tapTimeout;
   var longTapDelay = 750;
   var singleTapDelay = 150;
+  if ($.isAndroid) singleTapDelay = 200;
   var longTapTimeout;
   function parentIfText(node) {
     return 'tagName' in node ? node : node.parentNode;
@@ -1083,8 +1084,8 @@ if(window.jQuery) {
           if (options.color) {
             $('#' + settings.id).find('circle').css('stroke', options.color);
           }
-          $('#' + settings.id).css({'height': settings.size + 'px', 'width': settings.size + 'px'});
         }
+        $('#' + settings.id).css({'height': settings.size + 'px', 'width': settings.size + 'px'});
         return $('#' + settings.id);
       };
       // For Windows 8/WP8:
@@ -1121,19 +1122,28 @@ if(window.jQuery) {
         message: 'This is a message from me to you.',
         cancelButton: 'Cancel',
         continueButton: 'Go Ahead',
-        callback: function() { // do nothing }
+        callback: function() { // do nothing },
+        empty: true
       }
       */
       if (!options) return;
-      var id = options.id || $.Uuid();
-      var title = options.title ? '<header><h1>' + options.title + '</h1></header>' : '';
-      var message = options.message ? '<p role="note">' + options.message + '</p>' : '';
-      var cancelButton = options.cancelButton ? '<button class="cancel" role="button">' + options.cancelButton + '</button>' : '';
-      var continueButton = options.continueButton  ? '<button class="continue" role="button">' + options.continueButton + '</button>' : '';
-      var callback = options.callback || $.noop;
-      var padding = options.empty ? ' noTitle' : '';
-      var panelOpen, panelClose;
-      var popup = $.concat('<div class="popup closed', padding, '" role="alertdialog" id="', id, '"><div class="panel">', title, message, '</div><footer>', cancelButton, continueButton, '</footer>', panelClose, '</div>');
+      var settings = {};
+      settings.id = $.Uuid();
+      settings.content = true;
+      $.extend(settings, options);
+
+      var id = settings.id;
+      var title = settings.title ? '<header><h1>' + settings.title + '</h1></header>' : '';
+      var message = settings.message ? '<p role="note">' + options.message + '</p>' : '';
+      var cancelButton = options.cancelButton ? '<button class="cancel" role="button">' + settings.cancelButton + '</button>' : '';
+      var continueButton = settings.continueButton  ? '<button class="continue" role="button">' + settings.continueButton + '</button>' : '';
+      var callback = settings.callback || $.noop;
+      var panelOpen, panelClose, popup;
+      if (settings.empty) {
+        popup = $.concat('<div class="popup closed" role="alertdialog" id="', id, '"><div class="panel"></div></div>');
+      } else {
+        popup = $.concat('<div class="popup closed', '" role="alertdialog" id="', id, '"><div class="panel">', title, message, '</div><footer>', cancelButton, continueButton, '</footer>', panelClose, '</div>');
+      }
     
       $('body').append(popup);
       if (callback && continueButton) {
@@ -1759,32 +1769,35 @@ if(window.jQuery) {
         id : 'starTrek',
         listClass :'enterprise',
         background: 'transparent',
+        handle: false
       }
     */
     UISheet : function ( options ) {
-      var id = $.Uuid();
-      var listClass = '';
-      var background = '';
-      if (options) {
-        id = options.id ? options.id : id;
-        listClass = options.listClass ? ' ' + options.listClass : '';
-        background = ' style="background-color:' + options.background + ';" ' || '';
-      }
-      var sheet = '<div id="' + id + '" class="sheet' + listClass + '"><div class="handle"></div><section class="scroller-vertical"></section></div>';
+      if (!options) var options = {};
+      if (options.background) options.background =  $.concat(' style="background-color:', options.background, '" ');
+      if (options.handle === false) options.handle = '';
+      var settings = {};
+      settings.id = $.Uuid();
+      settings.listClass = '';
+      settings.background = '';
+      settings.handle = '<div class="handle"></div>';
+      if (options) $.extend(settings, options);
+      var sheet = $.concat('<div id="', settings.id, '" class="sheet', settings.listClass, '"', settings.background, '>', settings.handle, '<section class="scroller-vertical"></section></div>');
       $('body').append(sheet);
       $('.sheet .handle').on($.eventStart, function() {
         $.UIHideSheet();
       });
     },
     UIShowSheet : function ( id ) {
+      var sheet = id ? id : '.sheet';
       $('article.current').addClass('blurred');
       if ($.isAndroid || $.isChrome) {
-        $(id).css('display','block');
+        $(sheet).css('display','block');
         setTimeout(function() {
-          $(id).addClass('opened');
+          $(sheet).addClass('opened');
         }, 20);
       } else {
-        $(id).addClass('opened');
+        $(sheet).addClass('opened');
       }
     },
     UIHideSheet : function ( ) {

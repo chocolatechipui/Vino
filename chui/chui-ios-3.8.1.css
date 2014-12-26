@@ -11,7 +11,7 @@ ChocolateChip-UI
 ChUI-iOS.css
 Copyright 2014 Sourcebits www.sourcebits.com
 License: MIT
-Version: 3.8.0
+Version: 3.8.1
 */
 /*
   To create a custom theme, uncomment the second of each of the following, then adjust the color for @primaryColor. If you want a secondary color, uncomment the line for @secondaryColor and set it's value to what you want.
@@ -281,9 +281,9 @@ li.comp > aside.vertical {
   align-items: flex-start;
 }
 .horizontal {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
+  display: -webkit-flex;
+  display: -webkit-box;
   -webkit-box-orient: horizontal;
   -webkit-flex-direction: row;
   flex-direction: row;
@@ -380,7 +380,8 @@ button.action {
 nav > button {
   max-width: 100px;
 }
-button.align-flush, .toolbar > button.align-flush {
+button.align-flush,
+.toolbar > button.align-flush {
   position: absolute;
   right: 15px;
   margin-right: 0 !important;
@@ -394,7 +395,7 @@ button.align-flush, .toolbar > button.align-flush {
   top: 3px;
 }
 .isDesktop button {
-  font-family: "Helvetica Neue", HelveticaNeue, sans-serif;
+  font: "Helvetica Neue", HelveticaNeue, sans-serif;
 }
 .isiOS button.back,
 .isiOS button.backTo .isSafari6 button.back,
@@ -1498,6 +1499,7 @@ html[dir=rtl] body.splitlayout > article.detail {
   transition: all 0.25s ease-out;
   -webkit-trasform-origin: center center;
   trasform-origin: center center;
+  min-height: 100px;
 }
 .popup.closed {
   -webkit-transform: scale(0);

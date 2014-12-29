@@ -113,25 +113,16 @@ $(function () {
   to create the necessary objects along with their
   validation and business logic here. */
 
-  // Get JSON data for wines:
-  //=========================
-  var wines;
 
-  // Get the JSON for all available California wines:
-  $.getJSON('./data/californiaWines.js', function(data) {
-    wines = data;
-  });
-
-  // Get the JSON for top picks of red and white wines:
-  $.getJSON('./data/bestWines.js', function(data) {
-    var bestReds = data[0].data;
-    var bestWhites = data[1].data;
+    // Get the JSON for top picks of red and white wines:
+    var bestReds = bestWines[0].data;
+    var bestWhites = bestWines[1].data;
 
     // Publish the results to notify
     // any template subscribers that
     // the data is available:
     $.publish('wine-top-picks', [bestReds, bestWhites]);
-  });
+
 
 
   // Set up inital values for search parameters.
@@ -227,14 +218,14 @@ $(function () {
   //========================================
 
   // Initialize about sheet:
-  $.UISheet({id:'aboutSheet', handle: false});
-
-  // Add button to close about sheet:
-  $('#aboutSheet').find('section').html(aboutSheetHandleTemplate);
+  $.UISheet({id:'aboutSheet'});
 
   // Populate about sheet with content:
-  $('#aboutSheet').find('section').append(aboutContent);
+  $('#aboutSheet').find('section').html(aboutContent);
 
+  // Add button to close about sheet:
+  $('#aboutSheet').find('.handle').html(aboutSheetHandleTemplate);
+  
   // Define handler to show about sheet
   // when use taps the info icon button:
   //====================================
@@ -323,7 +314,7 @@ $(function () {
 
   // Create the search sheet:
   //=========================
-  $.UISheet({id:'searchSheet', handle: false});
+  $.UISheet({id:'searchSheet'});
 
   // Populate search sheet:
   //=======================
@@ -484,14 +475,17 @@ $(function () {
   // This is captured when the user taps
   // the Visit button on wine detail page.
   //========================================
-  var WineryLocationMediator = $.subscribe('top-pick-selected-wine', function(event, winery) {
+  var WineryLocationMediator = $.subscribe('top-pick-selected-wine', function (event, winery) {
     $('#viewWinery').attr('data-location', winery.location);
   });
 
   // Define method to show winery in Apple Maps:
   //============================================
   var renderWineryMap = function(location) {
-    window.location.href= 'http://maps.apple.com/?q=' + location;
+      // window.location.href = 'http://bing.com/maps/default.aspx?where1=' + location;
+      var url = 'http://bing.com/maps/default.aspx?where1=' + location;
+      console.log(url);
+      window.open(url, '_blank');
   };
 
   // Define event handler to show 
@@ -508,7 +502,7 @@ $(function () {
 
   // Initialize purchase sheet:
   //===========================
-  $.UISheet({id:'purchaseSheet', handle: false});
+  $.UISheet({id:'purchaseSheet'});
   
   // Populate purchase sheet
   $('#purchaseSheet').find('section').html(purchaseSheetTemplate);
@@ -521,35 +515,22 @@ $(function () {
 
   // Define method for purchase process.
   // This will animate the progress bar:
-  //====================================
-  var processProgress = function() {
-    if (pval === 500) {
-      // Make sure we are starting clean:
-      clearInterval(progressInterval);
+    //====================================
+  var showProgressPanel = function () {
 
-      // Show the progress panel:
-      $('#progressPanel').toggle();
 
       // Hide the confirmation panel:
-      $('#confirmationPanel').toggle();
+      $('#progressPanel').hide();
+      $('#confirmationPanel').show();
       $('#purchaseSheet').css('height', 200);
-
-      // Set inital value for progress animation:
-      pval = 0;
-    } else {
-      // Increate the value for animation:
-      pval++;
-
-      // Update the progress bar with new value:
-      progress.val(pval);
-    }
+      $('progress').val(0);
+      // Make sure we are starting clean:
   };
 
   // Define handler to display purchase sheet:
   //==========================================
   $('#confirmationPanel button').on('singletap', function() {
     $.UIHideSheet();
-
 
     $('#confirmationPanel').hide();
 
@@ -582,10 +563,18 @@ $(function () {
       cancelButton: 'Cancel',
       continueButton: 'Purchase',
       callback: function() {
-        setTimeout(function() {
-          $.UIShowSheet('#purchaseSheet');
-          progressInterval = setInterval(processProgress, pval);
-        });
+        setTimeout(function () {
+            $.UIShowSheet('#purchaseSheet');
+            $('#progressPanel').show();
+            $('#purchaseSheet').css('height', 80);
+            setTimeout(function () {
+                $('progress').val(500);
+            },500);
+            setTimeout(function () {
+                showProgressPanel();
+            }, 1000);
+          //showProgressPanel();
+        }, 10);
       }
     });
   });

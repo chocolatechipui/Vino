@@ -4,14 +4,9 @@ $(function () {
   // Initialization
   // Check for larger iPhones (6 and 6 Plus)
   //////////////////////////////////////////
-  var isiPhone6Plus = false;
-  var isiPhone6 = false;
-  if ($.isiOS && window.innerWidth >= 414) isiPhone6Plus = true;
-  if ($.isiOS && window.innerWidth === 375) isiPhone6 = true;
+  var isWidePhone = false;
   if (!$.isStandalone) $('body').addClass('inBrowserMode');
-  if (!$.isiOS && window.innerWidth >= 414) isiPhone6Plus = true;
-  if (!$.isiOS && window.innerWidth >= 320 && window.innerWidth < 414) isiPhone6 = true;
-  if (($.isAndroid || $.isChrome) && window.innerWidth <= 360) isiPhone6 = true;
+  if (($.isAndroid || $.isChrome) && window.innerWidth <= 360) isWidePhone = true;
 
 
 
@@ -264,27 +259,9 @@ $(function () {
   // iPad and desktop Safari.
   //=================================
   var assembleSearchSheet = function () {
-    // For iPhone 6 Plus:
-    if (isiPhone6Plus) {
-      $('#searchSheet section').html(searchNavBar + searchiPhone6Type + searchiPhone6PlusBody + priceSelector);
 
-      // Initialize select lists:
-      $('#wineType').UISelectList({
-        selected: 0,
-        callback: function() {
-          searchParameters.type = $(this).text();
-        }
-      });
-
-      $('#wineBody').UISelectList({
-        selected: 0,
-        callback: function() {
-          searchParameters.body = $(this).text();
-        }
-      });
-
-    // For iPhone 6:
-    } else if (isiPhone6) {
+    // For wider Android phone:
+    if (isWidePhone) {
       $('#searchSheet section').html(searchNavBar + searchiPhone6Type + searchiPhone6Body + priceSelector);
 
       // Initialize segemented control behavior:

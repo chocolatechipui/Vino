@@ -57,46 +57,46 @@ $(function () {
   var aboutContent = $('#aboutContent').html();
 
 
-    // Parts for search sheet.
-    // Different content for different 
-    // iPhone & iPad sizes:
-    //================================
+  // Parts for search sheet.
+  // Different content for different 
+  // iPhone & iPad sizes:
+  //================================
 
-    // All phones get search nav:
-    var searchNavBar = $('#searchNavBarTemplate').html();
+  // All phones get search nav:
+  var searchNavBar = $('#searchNavBarTemplate').html();
 
-    // For iPhone 6 Plus:
-    var searchiPhone6Type = $('#searchiPhone6TypeTemplate').html();
+  // For iPhone 6 Plus:
+  var searchiPhone6Type = $('#searchiPhone6TypeTemplate').html();
 
-    // For iPhone 6 Plus:
-    var searchiPhone6PlusBody = $('#searchiPhone6PlusBody').html();
+  // For iPhone 6 Plus:
+  var searchiPhone6PlusBody = $('#searchiPhone6PlusBody').html();
 
-    // For iPhone 6:
-    var searchiPhone6Body = $('#searchiPhone6Body').html();
+  // For iPhone 6:
+  var searchiPhone6Body = $('#searchiPhone6Body').html();
 
-    // For all iPhones and Web:
-    // Define data-model on label and
-    // data-controller on range input
-    // to enable automatic data binding.
-    var priceSelector = $('#priceSelector').html();
+  // For all iPhones and Web:
+  // Define data-model on label and
+  // data-controller on range input
+  // to enable automatic data binding.
+  var priceSelector = $('#priceSelector').html();
 
-    // For Web and iPhone 5S and earlier:
-    var searchPanel = $('#searchPanel').html();
+  // For Web and iPhone 5S and earlier:
+  var searchPanel = $('#searchPanel').html();
 
-    var searchResultsTmpl = $('#searchResultsTemplate').html();
-    var parsedSearchResults = $.template(searchResultsTmpl, 'wine');
+  var searchResultsTmpl = $('#searchResultsTemplate').html();
+  var parsedSearchResults = $.template(searchResultsTmpl, 'wine');
 
-    // Render templates that will show
-    // parameters for search results:
-    var searchParameteresTemplate = $('#searchParameteresTemplate').html();
-    $('#searchParameters').html(searchParameteresTemplate);
-    $('#searchParameters-no-match').html(searchParameteresTemplate);
+  // Render templates that will show
+  // parameters for search results:
+  var searchParameteresTemplate = $('#searchParameteresTemplate').html();
+  $('#searchParameters').html(searchParameteresTemplate);
+  $('#searchParameters-no-match').html(searchParameteresTemplate);
 
-    // Purchase Sheet Template:
-    var purchaseSheetTemplate = $('#purchaseSheetTemplate').html();
+  // Purchase Sheet Template:
+  var purchaseSheetTemplate = $('#purchaseSheetTemplate').html();
 
-    // About Sheet Handle Template:
-    var aboutSheetHandleTemplate = $('#aboutSheetTemplate').html();
+  // About Sheet Handle Template:
+  var aboutSheetHandleTemplate = $('#aboutSheetTemplate').html();
 
 
 

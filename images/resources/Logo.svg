@@ -7,10 +7,10 @@
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="Logo" sketch:type="MSLayerGroup">
             <rect id="Rectangle-3" stroke="#FFFFFF" stroke-width="4" fill-opacity="0.5" fill="#000000" sketch:type="MSShapeGroup" x="0" y="0" width="304" height="64"></rect>
-            <text id="CALIFORNIA" sketch:type="MSTextLayer" font-family="Helvetica Neue" font-size="28" font-weight="bold" sketch:alignment="middle" fill="#FFFFFF">
+            <text  style="letter-spacing: 1px;" id="CALIFORNIA" sketch:type="MSTextLayer" font-family="Calibri Light" font-size="32" font-weight="bold" sketch:alignment="middle" fill="#FFFFFF">
                 <tspan x="23.708" y="42">CALIFORNIA</tspan>
             </text>
-            <text id="Type-something" sketch:type="MSTextLayer" font-family="Helvetica Neue" font-size="28" font-weight="260" sketch:alignment="middle" fill="#FFFFFF">
+            <text id="Type-something" sketch:type="MSTextLayer" font-family="Calibri Light" font-size="32" font-weight="260" sketch:alignment="middle" fill="#FFFFFF">
                 <tspan x="194.216" y="42">WINES</tspan>
             </text>
         </g>

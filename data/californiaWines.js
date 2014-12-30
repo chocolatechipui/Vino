@@ -981,16 +981,17 @@
   },
   {
     "id": "050",
-    "name": "2012 Carneros Chardonnay",
-    "type": "White",
-    "varietal": "Chardonnay",
-    "description": "This Chardonnay has terrific fruit power without being too heavy. Interesting layers of fruit reveal themselves as it opens up in the glass and becomes more complex with a little air. With a lifted nose of apricot and fresh spring flowers, it's instantly recognizable as a Carneros Chardonnay. The apricot continues to the palate where it's quickly joined by fresh mandarin and tropical fruits. Lingering mandarin and tropical fruit illustrate the finish. It’s a quality Chardonnay that will suit a cheese plate, seafood and pasta alike.",
+    "name": "2012 Russian River Valley Pinot Noir Reserve      
+",
+    "type": "Red",
+    "varietal": "Pinot Noir",
+    "description": "Pinot Noir may be the toughest grape to grow, but the effort is well worth the investment. It is a fickle grape that demands optimum growing conditions, demanding warm days consistently supported by cool evenings. Pinot Noir is a lighter colored and flavored red wine. Its flavors are reminiscent of sweet red berries, plums, tomatoes, cherries and at times a notable earthy or wood-like flavor, depending on specific growing conditions. ",
     "body": "Medium",
     "winery": "Ledson Winery &amp; Vineyards",
     "region": "Sonoma",
     "address": "7335 Sonoma Hwy (Hwy 12), Kenwood, CA 95409",
     "location": "Ledson+Winery+&+Vineyards",
-    "price": "$38.00",
+    "price": "$66.00",
     "label": {
       "name": "Carneros Chardonnay",
       "winery": "Ledson",

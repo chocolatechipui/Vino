@@ -81,7 +81,7 @@
       },
       {
         "id": "113",
-        "name": "Zinfandel",
+        "name": "Montelena Zinfandel",
         "winery": "Chateau Montelena",
         "year": "2011",
         "location": "Chateau+Montelena+Winery"
@@ -120,7 +120,7 @@
         "location": "Duckhorn+Vineyards"
       },
       {
-        "id": "144",
+        "id": "145",
         "name": "Chardonnay",
         "winery": "Franciscan",
         "year": "2013",

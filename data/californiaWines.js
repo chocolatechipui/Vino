@@ -3649,7 +3649,7 @@
     "winery": "Spring Mountain Vineyard",
     "region": "Napa",
     "address": "22805 Spring Mountain Road, St. Helena CA 94574",
-    "location": "pring+Mountain+Vineyard",
+    "location": "Spring+Mountain+Vineyard",
     "price": "$55.00",
     "label": {
       "name": "Estate Syrah",
@@ -3669,7 +3669,7 @@
     "winery": "Spring Mountain Vineyard",
     "region": "Napa",
     "address": "22805 Spring Mountain Road, St. Helena CA 94574",
-    "location": "pring+Mountain+Vineyard",
+    "location": "Spring+Mountain+Vineyard",
     "price": "$75.00",
     "label": {
       "name": "Estate Pinot Noir",

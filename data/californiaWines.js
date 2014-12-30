@@ -981,8 +981,7 @@
   },
   {
     "id": "050",
-    "name": "2012 Russian River Valley Pinot Noir Reserve      
-",
+    "name": "2012 Russian River Valley Pinot Noir Reserve",
     "type": "Red",
     "varietal": "Pinot Noir",
     "description": "Pinot Noir may be the toughest grape to grow, but the effort is well worth the investment. It is a fickle grape that demands optimum growing conditions, demanding warm days consistently supported by cool evenings. Pinot Noir is a lighter colored and flavored red wine. Its flavors are reminiscent of sweet red berries, plums, tomatoes, cherries and at times a notable earthy or wood-like flavor, depending on specific growing conditions. ",

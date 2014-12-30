@@ -147,7 +147,7 @@ progress {
 }
 .sheet {
   top: auto;
-  height: 80px;
+  height: 100px;
   background-color: #f7f7f7;
   border-top: solid 2px #ccc;
   padding: 0;
@@ -346,6 +346,12 @@ background-color: red;
 }
 #aboutSheet {
   height: 100% !important;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+}
+#aboutSheet.opened {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 #aboutSheet section {
   padding: 20px 15px 200px 15px !important;
@@ -358,11 +364,14 @@ background-color: red;
   padding: 0 20px 10px 20px;
   border-bottom: solid 1px #bbb;
   margin: 0 -40px;
-  height: 60px;
+  height: 80px;
+}
+#aboutSheet button {
+  margin: 10px auto;
 }
 #aboutSheet > section {
   position: absolute;
-  top: 70px !important;
+  top: 0px !important;
   left: 15px !important;
   right: 15px !important;
   bottom: 0px !important;

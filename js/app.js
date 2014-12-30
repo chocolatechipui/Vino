@@ -4,9 +4,13 @@ $(function () {
   // Initialization
   // Check for larger iPhones (6 and 6 Plus)
   //////////////////////////////////////////
-  var isWidePhone = false;
+  var isiPhone6Plus = false;
+  var isiPhone6 = false;
+  if ($.isiOS && window.innerWidth >= 414) isiPhone6Plus = true;
+  if ($.isiOS && window.innerWidth === 375) isiPhone6 = true;
   if (!$.isStandalone) $('body').addClass('inBrowserMode');
-  if (($.isAndroid || $.isChrome) && window.innerWidth <= 360) isWidePhone = true;
+  if (!$.isiOS && window.innerWidth >= 414) isiPhone6Plus = true;
+  if (!$.isiOS && window.innerWidth >= 320 && window.innerWidth < 414) isiPhone6 = true;
 
 
 
@@ -53,46 +57,46 @@ $(function () {
   var aboutContent = $('#aboutContent').html();
 
 
-    // Parts for search sheet.
-    // Different content for different 
-    // iPhone & iPad sizes:
-    //================================
+  // Parts for search sheet.
+  // Different content for different 
+  // iPhone & iPad sizes:
+  //================================
 
-    // All phones get search nav:
-    var searchNavBar = $('#searchNavBarTemplate').html();
+  // All phones get search nav:
+  var searchNavBar = $('#searchNavBarTemplate').html();
 
-    // For iPhone 6 Plus:
-    var searchiPhone6Type = $('#searchiPhone6TypeTemplate').html();
+  // For iPhone 6 Plus:
+  var searchiPhone6Type = $('#searchiPhone6TypeTemplate').html();
 
-    // For iPhone 6 Plus:
-    var searchiPhone6PlusBody = $('#searchiPhone6PlusBody').html();
+  // For iPhone 6 Plus:
+  var searchiPhone6PlusBody = $('#searchiPhone6PlusBody').html();
 
-    // For iPhone 6:
-    var searchiPhone6Body = $('#searchiPhone6Body').html();
+  // For iPhone 6:
+  var searchiPhone6Body = $('#searchiPhone6Body').html();
 
-    // For all iPhones and Web:
-    // Define data-model on label and
-    // data-controller on range input
-    // to enable automatic data binding.
-    var priceSelector = $('#priceSelector').html();
+  // For all iPhones and Web:
+  // Define data-model on label and
+  // data-controller on range input
+  // to enable automatic data binding.
+  var priceSelector = $('#priceSelector').html();
 
-    // For Web and iPhone 5S and earlier:
-    var searchPanel = $('#searchPanel').html();
+  // For Web and iPhone 5S and earlier:
+  var searchPanel = $('#searchPanel').html();
 
-    var searchResultsTmpl = $('#searchResultsTemplate').html();
-    var parsedSearchResults = $.template(searchResultsTmpl, 'wine');
+  var searchResultsTmpl = $('#searchResultsTemplate').html();
+  var parsedSearchResults = $.template(searchResultsTmpl, 'wine');
 
-    // Render templates that will show
-    // parameters for search results:
-    var searchParameteresTemplate = $('#searchParameteresTemplate').html();
-    $('#searchParameters').html(searchParameteresTemplate);
-    $('#searchParameters-no-match').html(searchParameteresTemplate);
+  // Render templates that will show
+  // parameters for search results:
+  var searchParameteresTemplate = $('#searchParameteresTemplate').html();
+  $('#searchParameters').html(searchParameteresTemplate);
+  $('#searchParameters-no-match').html(searchParameteresTemplate);
 
-    // Purchase Sheet Template:
-    var purchaseSheetTemplate = $('#purchaseSheetTemplate').html();
+  // Purchase Sheet Template:
+  var purchaseSheetTemplate = $('#purchaseSheetTemplate').html();
 
-    // About Sheet Handle Template:
-    var aboutSheetHandleTemplate = $('#aboutSheetTemplate').html();
+  // About Sheet Handle Template:
+  var aboutSheetHandleTemplate = $('#aboutSheetTemplate').html();
 
 
 
@@ -122,7 +126,6 @@ $(function () {
   $.getJSON('./data/bestWines.js', function(data) {
     var bestReds = data[0].data;
     var bestWhites = data[1].data;
-    console.log(data);
 
     // Publish the results to notify
     // any template subscribers that
@@ -224,14 +227,14 @@ $(function () {
   //========================================
 
   // Initialize about sheet:
-  $.UISheet({id:'aboutSheet'});
-
-  // Populate about sheet with content:
-  $('#aboutSheet').find('section').html(aboutContent);
+  $.UISheet({id:'aboutSheet', handle: false});
 
   // Add button to close about sheet:
-  $('#aboutSheet').find('.handle').html(aboutSheetHandleTemplate);
-  
+  $('#aboutSheet').find('section').html(aboutSheetHandleTemplate);
+
+  // Populate about sheet with content:
+  $('#aboutSheet').find('section').append(aboutContent);
+
   // Define handler to show about sheet
   // when use taps the info icon button:
   //====================================
@@ -242,7 +245,6 @@ $(function () {
   // Define handler to close about sheet:
   //=====================================
   $('#aboutSheet button').on('singletap', function() {
-    $('.sheet').removeAttr('style'); 
     $.UIHideSheet();
   });
 
@@ -259,9 +261,27 @@ $(function () {
   // iPad and desktop Safari.
   //=================================
   var assembleSearchSheet = function () {
+    // For iPhone 6 Plus:
+    if (isiPhone6Plus) {
+      $('#searchSheet section').html(searchNavBar + searchiPhone6Type + searchiPhone6PlusBody + priceSelector);
 
-    // For wider Android phone:
-    if (isWidePhone) {
+      // Initialize select lists:
+      $('#wineType').UISelectList({
+        selected: 0,
+        callback: function() {
+          searchParameters.type = $(this).text();
+        }
+      });
+
+      $('#wineBody').UISelectList({
+        selected: 0,
+        callback: function() {
+          searchParameters.body = $(this).text();
+        }
+      });
+
+    // For iPhone 6:
+    } else if (isiPhone6) {
       $('#searchSheet section').html(searchNavBar + searchiPhone6Type + searchiPhone6Body + priceSelector);
 
       // Initialize segemented control behavior:
@@ -303,7 +323,7 @@ $(function () {
 
   // Create the search sheet:
   //=========================
-  $.UISheet({id:'searchSheet'});
+  $.UISheet({id:'searchSheet', handle: false});
 
   // Populate search sheet:
   //=======================
@@ -471,14 +491,7 @@ $(function () {
   // Define method to show winery in Apple Maps:
   //============================================
   var renderWineryMap = function(location) {
-    // Open Apple Maps on Mac & iOS:
-    if ($.isiOS) {
-      window.location.href= 'http://maps.apple.com/?q=' + location;
-
-    // Otherwise open with Google Maps:
-    } else {
-      window.location.href= 'http://maps.google.com/?q=' + location;
-    }
+    window.location.href= 'http://maps.apple.com/?q=' + location;
   };
 
   // Define event handler to show 
@@ -495,10 +508,11 @@ $(function () {
 
   // Initialize purchase sheet:
   //===========================
-  $.UISheet({id:'purchaseSheet'});
+  $.UISheet({id:'purchaseSheet', handle: false});
   
   // Populate purchase sheet
   $('#purchaseSheet').find('section').html(purchaseSheetTemplate);
+  $('#purchaseSheet').css("height",100);;
 
   // Make purchase of wine:
   //=======================
@@ -515,15 +529,17 @@ $(function () {
       clearInterval(progressInterval);
 
       // Show the progress panel:
-      $('#progressPanel').toggle();
+      $('#progressPanel').hide();
 
       // Hide the confirmation panel:
-      $('#confirmationPanel').toggle();
+      $('#confirmationPanel').show();
       $('#purchaseSheet').css('height', 200);
 
       // Set inital value for progress animation:
       pval = 0;
     } else {
+      $('#purchaseSheet').css('height', 100);
+      $('#progressPanel').show();
       // Increate the value for animation:
       pval++;
 
@@ -536,16 +552,15 @@ $(function () {
   //==========================================
   $('#confirmationPanel button').on('singletap', function() {
     $.UIHideSheet();
-    $('.sheet').removeAttr('style'); 
 
     $('#confirmationPanel').hide();
 
-    $('#purchaseSheet').css('height', 100);
+    $('#purchaseSheet').removeAttr('style');
 
     // Delay showing the progress bar so
     // it doesn't show while hiding the sheet:
     setTimeout(function() {
-      $('#progressPanel').show();
+      $('#progressPanel').hide();
     }, 200);
   }) 
 
@@ -570,9 +585,6 @@ $(function () {
       continueButton: 'Purchase',
       callback: function() {
         setTimeout(function() {
-          if ($.isAndroid || $.isDesktopChrome) {
-            $('#purchaseSheet').css(top, 0)
-          }
           $.UIShowSheet('#purchaseSheet');
           progressInterval = setInterval(processProgress, pval);
         });

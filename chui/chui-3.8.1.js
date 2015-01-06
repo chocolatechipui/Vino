@@ -2804,9 +2804,14 @@ if(window.jQuery) {
   // Plugin to setup automatic data binding:
   //////////////////////////////////////////
   $.extend($, {
-    UIBindData : function () {
-
-      var controllers = $('[data-controller]');
+    UIBindData : function (controller) {
+      var controllers;
+      if (controller) {
+        controllers = $('[data-controller=' + controller +']');
+      } else {
+        controllers = $('[data-controller]');
+      }
+      
       var broadcasts = [];
 
       // Define function to create broadcasts:

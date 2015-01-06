@@ -29,9 +29,9 @@ $(function () {
   // Parse the template string and use "wine" variable:
   var parsedTopPicks = $.template(topPicksTmpl, 'wine');
 
-  // Subscribe to 'wine-top-picks' publication.
-  // This will send the top picks of red and white
-  // wines through and Ajax request in the Model section.
+  // Subscribe to 'wine-top-picks' publication. This
+  // publication sends the top picks of red and white
+  // wines through an Ajax request in the Model section.
   //=====================================================
   var bestRedWines = $.subscribe('wine-top-picks', function(event, wines) {
     // Append rendered items to red picks list:
@@ -192,7 +192,7 @@ $(function () {
 
     // Publish the selected wine:
     $.publish('top-pick-selected-wine', tappedWine[0]);
-  }); 
+  });
 
   // Define Mediator to output chosen wine:
   //=======================================
@@ -203,7 +203,6 @@ $(function () {
   // Define method to be used by TopPicsMediator:
   //=============================================
   var renderSelectedWine = function(wine) {
-    // console.log(wine.name);
     // Output selected wine template:
     $('#selectedWine ul').html(parsedSelectedWine(wine));
 
@@ -329,7 +328,7 @@ $(function () {
   //=======================
   assembleSearchSheet();
 
-  $.UIBindData();
+  $.UIBindData('selectedWinePrice');
 
   // Hide search sheet when user taps Cancel:
   //=========================================

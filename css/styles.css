@@ -120,6 +120,7 @@
 }
 #pricePanel {
   margin : 0;
+  display: -webkit-flex;
 }
 #priceRangeInput {
   display: block;

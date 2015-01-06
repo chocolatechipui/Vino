@@ -192,14 +192,16 @@ progress {
 #getInfo {
   height: 40px;
   width: 40px;
-  background-image:  -webkit-radial-gradient(rgba(0, 0, 0, 0.125) 50%, rgba(0, 0, 0, 0) 60%), url('../images/resources/info-button-android.svg');
+  background-image:  -webkit-radial-gradient(rgba(0, 0, 0, 0.125) 50%, rgba(0, 0, 0, 0) 60%), url('../images/resources/info button.svg');
+  background-size: auto 90% !important;
+  background-position: center center, center center;
 }
 @-webkit-keyframes focused {
   0% {
-    background-size: 0% 0%, auto 60%;
+    background-size: 0% 0%, auto 90%;
   }
   100% {
-    background-size: 200% 200%, auto 60%;
+    background-size: 200% 200%, auto 90%;
   }
 }
 #main + .toolbar > button {
